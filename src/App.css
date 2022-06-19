@@ -1,3 +1,9 @@
+:root {
+  --main: #181818;
+  --scnd: #fc766aff;
+  --creamy: rgb(233, 202, 146);
+}
+
 @keyframes floatDown {
   0% {
     top: -5rem;
@@ -69,7 +75,7 @@ h4,
 h5,
 h6,
 h7 {
-  color: #fc766aff;
+  color: var(--scnd);
 }
 
 p {
@@ -86,14 +92,14 @@ h2 {
 }
 
 html {
-  background-color: #fc766aff;
+  background-color: var(--creamy);
 }
 
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fc766aff;
+  background-color: var(--creamy);
 }
 
 #root > * {
@@ -101,7 +107,7 @@ html {
 }
 
 .App {
-  background-color: #5b84b1ff;
+  background-color: var(--main);
   width: 97%;
   height: 96%;
   overflow: scroll;
@@ -172,6 +178,8 @@ header nav {
   justify-content: center;
   flex-direction: column;
   gap: 0.5rem;
+  top: 1rem;
+  margin-bottom: 5.5rem;
 }
 
 .nav-control span {
@@ -219,7 +227,7 @@ header nav {
   position: absolute;
   border-radius: 50px;
   width: 12rem;
-  background-color: rgb(57, 55, 54);
+  background-color: var(--main);
   opacity: 0;
   transition: 1s;
 }
@@ -259,7 +267,7 @@ main {
 }
 
 .hero > div {
-  background-color: #fc766aff;
+  background-color: var(--scnd);
   padding: 2rem;
   border-radius: 100px;
   display: flex;
@@ -345,8 +353,8 @@ main {
   align-items: center;
   transform: rotateY(-180deg);
 
-  background-color: #fc766aff;
-  background-image: linear-gradient(160deg, #fc766aff 0%, #5b84b1ff 100%);
+  background-color: var(--scnd);
+  background-image: linear-gradient(160deg, var(--scnd) 0%, var(--main) 100%);
   background-image: linear-gradient(
     43deg,
     #4158d0 0%,
@@ -397,7 +405,7 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #fc766aff;
+  background-color: var(--scnd);
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
@@ -484,4 +492,8 @@ main {
 
 .subheading.shown {
   opacity: 1;
+}
+
+.wrap {
+  border-right: 0.08em solid rgb(255, 83, 83);
 }
