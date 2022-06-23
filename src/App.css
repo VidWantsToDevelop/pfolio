@@ -1,7 +1,35 @@
 :root {
   --main: #181818;
-  --scnd: #fc766aff;
+  --scnd: rgb(233, 202, 146);
   --creamy: rgb(233, 202, 146);
+  --grFirst: #006b38ff;
+  --grScnd: #5fc3e4;
+  --grThrd: #e55d87;
+  --grFrth: rgb(233, 202, 146);
+}
+
+@keyframes textShadow {
+  0% {
+    text-shadow: 0 0 5px rgb(51 255 51 / 45%);
+  }
+  50% {
+    text-shadow: 0 0 15px rgb(51 255 51 / 80%);
+  }
+  100% {
+    text-shadow: 0 0 5px rgb(51 255 51 / 45%);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @keyframes floatDown {
@@ -63,7 +91,8 @@ body,
 .App {
   height: 100%;
   width: 100%;
-
+  padding: 0;
+  margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
 }
@@ -92,14 +121,30 @@ h2 {
 }
 
 html {
-  background-color: var(--creamy);
+  background: linear-gradient(
+    -45deg,
+    var(--grFirst),
+    var(--grScnd),
+    var(--grThrd),
+    var(--grFrth)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 #root {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(--creamy);
+  background: linear-gradient(
+    -45deg,
+    var(--gnFirst),
+    var(--gnScnd),
+    var(--gnThrd),
+    var(--grFrth)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 #root > * {
@@ -115,6 +160,7 @@ html {
 }
 
 header {
+  top: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -122,6 +168,7 @@ header {
   z-index: 100;
   position: fixed;
   width: 100%;
+  transition: top 0.5s ease-in-out;
 }
 
 .header-leftSide,
@@ -143,6 +190,7 @@ header {
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
+  gap: 2rem;
 }
 
 header nav ul {
@@ -165,13 +213,18 @@ header nav ul svg:hover {
   color: rgb(237, 166, 32);
 }
 
-header nav {
+header > svg {
+  left: 1.75rem;
+  position: absolute;
+  font-size: 72px;
+  background: -webkit-linear-gradient(rgb(193, 44, 44), #333);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .nav-control {
   cursor: pointer;
   transition: 0.35s;
-
   border-radius: 100%;
   display: flex;
   align-items: center;
@@ -179,7 +232,6 @@ header nav {
   flex-direction: column;
   gap: 0.5rem;
   top: 1rem;
-  margin-bottom: 5.5rem;
 }
 
 .nav-control span {
@@ -267,12 +319,33 @@ main {
 }
 
 .hero > div {
-  background-color: var(--scnd);
   padding: 2rem;
   border-radius: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.hero .letter {
+  color: #3f3;
+  font-family: 'Press Start 2P', cursive;
+  animation: textShadow 10s infinite;
+  letter-spacing: 0.4rem;
+}
+
+.hero h1 {
+  color: #3f3;
+  font-size: 0.4em;
+  font-family: 'Press Start 2P', cursive;
+  text-align: center;
+}
+
+.hero span {
+  animation: textShadow 10s infinite;
+  color: #3f3;
+  font-size: 0.9em;
+  font-family: 'Press Start 2P', cursive;
 }
 
 .about,
@@ -353,22 +426,30 @@ main {
   align-items: center;
   transform: rotateY(-180deg);
 
-  background-color: var(--scnd);
-  background-image: linear-gradient(160deg, var(--scnd) 0%, var(--main) 100%);
-  background-image: linear-gradient(
-    43deg,
-    #4158d0 0%,
-    #c850c0 46%,
-    #ffcc70 100%
+  background: linear-gradient(
+    -45deg,
+    var(--grFirst),
+    var(--grScnd),
+    var(--grThrd),
+    var(--grFrth)
   );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 .card-side.front {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #5b84b1ff;
-  background-image: linear-gradient(160deg, #5b84b1ff 0%, #fc766aff 100%);
+  background: linear-gradient(
+    -45deg,
+    var(--grFirst),
+    var(--grScnd),
+    var(--grThrd),
+    var(--grFrth)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 .card:hover .card-side.front {
@@ -405,7 +486,15 @@ main {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: var(--scnd);
+  background: linear-gradient(
+    -45deg,
+    var(--grFirst),
+    var(--grScnd),
+    var(--grThrd),
+    var(--grFrth)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
   border-radius: 20px;
   border: 6px solid transparent;
   background-clip: content-box;
@@ -413,7 +502,15 @@ main {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: rgb(248, 95, 81);
+  background: linear-gradient(
+    -45deg,
+    var(--grFirst),
+    var(--grScnd),
+    var(--grThrd),
+    var(--grFrth)
+  );
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
 }
 
 /* Logo */
@@ -481,13 +578,18 @@ main {
 }
 
 .subheading {
-  margin-top: -1.5rem;
-  margin-left: 1.5rem;
+  width: 100%;
+
   font-size: 0.9em;
   opacity: 0;
   font-family: 'Parisienne', cursive;
   color: rgb(247, 226, 187);
   transition: 1s;
+  display: flex;
+
+  align-items: flex-start;
+
+  flex-direction: row;
 }
 
 .subheading.shown {
@@ -496,4 +598,33 @@ main {
 
 .wrap {
   border-right: 0.08em solid rgb(255, 83, 83);
+}
+
+/* Typewriter */
+.typewriter-text {
+  font-size: 90px;
+  white-space: nowrap;
+  overflow: hidden;
+  animation: typewriter 6s steps(35) infinite,
+    blink 800ms steps(13) infinite normal, textShadow 10s infinite;
+  border-right: 5px solid white;
+}
+@keyframes typewriter {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 95%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: transparent;
+  }
 }
