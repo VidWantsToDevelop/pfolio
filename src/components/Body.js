@@ -2,13 +2,17 @@ import React, { useEffect } from 'react'
 import { GiSharpSmile } from 'react-icons/gi'
 
 const Body = () => {
-  const text = [
+  let text = [
     'Good morning/evening',
     'Just trying my best',
     'A curious programmer',
     'Thanks for visiting',
   ]
   useEffect(() => {
+    text.push(`Happy ${getDate()}🥳`)
+    trigger({
+      rootMargin: '-200px',
+    })
     const app = document.querySelector('.App')
     let lastScrollPos = app.scrollTop
 
@@ -41,7 +45,8 @@ const Body = () => {
                     if (e.animationName === 'typewriter') {
                       console.log(e)
                       console.log(Math.random() * 3)
-                      e.target.innerText = text[Math.floor(Math.random() * 3)]
+                      e.target.innerText =
+                        text[Math.floor(Math.random() * text.length)]
                     }
                   }}
                 >
@@ -51,7 +56,7 @@ const Body = () => {
             </div>
           </div>
         </div>
-        <div className='about'>
+        <div className='about hiddenSection'>
           <h2>Briefly about me 👨‍💻</h2>
           <h3>
             #Time is money, and I don't want to waste your. So let's start right
@@ -84,7 +89,7 @@ const Body = () => {
             but as I said time is money
           </p>
         </div>
-        <div className='projects'>
+        <div className='projects hiddenSection'>
           <h2>Projects behind 💼</h2>
           <p>
             As I have already said, I am a project guy and I have some projects
@@ -126,7 +131,7 @@ const Body = () => {
             </div>
           </div>
         </div>
-        <div className='conclusion'>
+        <div className='conclusion hiddenSection'>
           <h2>Conclusion 🏁</h2>
           <h3>Finally, we are here. </h3>
           <p>
@@ -142,9 +147,75 @@ const Body = () => {
             </span>
           </p>
         </div>
+        <div className='links'>
+          <ul>
+            <li>
+              <div>
+                <div>
+                  <a href='#'>GitHub</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <div>
+                <div>
+                  <a href='#'>LinkedIn</a>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
       </main>
     </>
   )
+}
+
+function trigger(options) {
+  let elements = document.querySelectorAll('.hiddenSection')
+  elements = Array.from(elements)
+  elements.forEach((el) => {
+    addObserver(el, options)
+  })
+}
+
+function addObserver(el, options) {
+  let observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.remove('hiddenSection')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, options)
+  observer.observe(el)
+}
+
+function getDate() {
+  let date
+  switch (new Date().getDay()) {
+    case 1:
+      date = 'Morning'
+      break
+    case 2:
+      date = 'Tuesday'
+      break
+    case 3:
+      date = 'Wednesday'
+      break
+    case 4:
+      date = 'Thursday'
+      break
+    case 5:
+      date = 'Friday'
+      break
+    case 6:
+      date = 'Saturday'
+      break
+    case 7:
+      date = 'Sunday'
+      break
+  }
+  return date
 }
 
 export default Body

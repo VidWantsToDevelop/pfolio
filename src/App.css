@@ -8,6 +8,26 @@
   --grFrth: rgb(233, 202, 146);
 }
 
+@keyframes typewriter {
+  0% {
+    width: 0%;
+  }
+  50% {
+    width: 95%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+@keyframes blink {
+  from {
+    border-color: black;
+  }
+  to {
+    border-color: transparent;
+  }
+}
+
 @keyframes textShadow {
   0% {
     text-shadow: 0 0 5px rgb(51 255 51 / 45%);
@@ -95,6 +115,10 @@ body,
   margin: 0;
   overflow-x: hidden;
   overflow-y: hidden;
+}
+
+ul li {
+  list-style: none;
 }
 
 h1,
@@ -609,22 +633,90 @@ main {
     blink 800ms steps(13) infinite normal, textShadow 10s infinite;
   border-right: 5px solid white;
 }
-@keyframes typewriter {
-  0% {
-    width: 0%;
-  }
-  50% {
-    width: 95%;
-  }
-  100% {
-    width: 0%;
-  }
+
+/* Sliding sections */
+
+.hiddenSection {
+  margin-top: 10rem;
+  opacity: 0.2;
 }
-@keyframes blink {
-  from {
-    border-color: black;
-  }
-  to {
-    border-color: transparent;
-  }
+
+.about,
+.projects,
+.conclusion {
+  transition: 1.15s ease-in-out;
+}
+
+/* Links */
+
+.links > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+ul li > div {
+  text-align: center;
+  padding: 1rem;
+
+  cursor: pointer;
+
+  transition: 0.5s;
+}
+
+ul li > div {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  text-align: center;
+}
+
+ul li div a {
+  text-decoration: none;
+  color: var(--creamy);
+  z-index: 3;
+}
+
+ul li > div:before {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f00;
+  transition: 0.5s;
+  z-index: 2;
+}
+
+ul li > div > div {
+  position: relative;
+  z-index: 3;
+  transition: 0.5s;
+}
+
+ul li > div:hover > div {
+  transform: rotateY(360deg);
+  z-index: 3;
+}
+
+ul li > div > div > a {
+  transition: 0.5s;
+}
+
+ul li > div:hover > div > a {
+  color: white;
+}
+
+ul li > div:hover:before {
+  top: 0;
+}
+
+ul li:nth-child(1) > div:before {
+  background: #171515;
+}
+
+ul li:nth-child(2) > div:before {
+  background-color: #0077b5;
 }
