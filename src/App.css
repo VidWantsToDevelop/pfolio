@@ -156,6 +156,12 @@ html {
   animation: gradient 15s ease infinite;
 }
 
+nav a {
+  text-decoration: none;
+  color: wheat;
+  font-size: 1.1em;
+}
+
 #root {
   display: flex;
   justify-content: center;
@@ -701,12 +707,18 @@ ul li > div:hover > div {
   z-index: 3;
 }
 
-ul li > div > div > a {
-  transition: 0.5s;
+/* Font colours */
+
+ul li:nth-child(1) > div:hover > div > a {
+  color: black;
 }
 
-ul li > div:hover > div > a {
+ul li:nth-child(2) > div:hover > div > a {
   color: white;
+}
+
+ul li > div > div > a {
+  transition: 0.5s;
 }
 
 ul li > div:hover:before {
@@ -714,7 +726,7 @@ ul li > div:hover:before {
 }
 
 ul li:nth-child(1) > div:before {
-  background: #171515;
+  background-color: white;
 }
 
 ul li:nth-child(2) > div:before {

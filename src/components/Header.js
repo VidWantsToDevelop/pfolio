@@ -17,13 +17,27 @@ const Header = () => {
           ></div>
           <ul>
             <li className={`nav-gitHub ${navIsShown ? 'shown' : 'hidden'}`}>
-              <SiGithub />
+              <a
+                href='https://github.com/VidWantsToDevelop?tab=repositories'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <SiGithub />
+              </a>
             </li>
             <li className={`nav-linkedIn ${navIsShown ? 'shown' : 'hidden'}`}>
-              <BsLinkedin />
+              <a
+                href='https://www.linkedin.com/in/david-boldyrev-925a70206/'
+                target='_blank'
+                rel='noreferrer'
+              >
+                <BsLinkedin />
+              </a>
             </li>
             <li className={`nav-duck ${navIsShown ? 'shown' : 'hidden'}`}>
-              <GiDuck />
+              <a href='#' target='_blank'>
+                <GiDuck />
+              </a>
             </li>
           </ul>
           <div
