@@ -108,7 +108,7 @@ const Body = () => {
                   <img
                     src='https://media4.giphy.com/media/rtRflhLVzbNWU/giphy.gif'
                     onClick={() => {
-                      window.location.href = 'google.com'
+                      window.location.href = 'https://duck-market.netlify.app/'
                     }}
                   />
                 </div>
