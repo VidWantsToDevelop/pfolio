@@ -106,6 +106,7 @@ const Body = () => {
                 <div className='card-side front'>Duck Market</div>
                 <div className='card-side back'>
                   <img
+                    alt="There must be a duck, but if you don't see any then probably something happened"
                     src='https://media4.giphy.com/media/rtRflhLVzbNWU/giphy.gif'
                     onClick={() => {
                       window.location.href = 'https://duck-market.netlify.app/'
