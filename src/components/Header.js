@@ -35,7 +35,11 @@ const Header = () => {
               </a>
             </li>
             <li className={`nav-duck ${navIsShown ? 'shown' : 'hidden'}`}>
-              <a href='#' target='_blank'>
+              <a
+                href='https://duck-market.netlify.app/'
+                target='_blank'
+                rel='noreferrer'
+              >
                 <GiDuck />
               </a>
             </li>
